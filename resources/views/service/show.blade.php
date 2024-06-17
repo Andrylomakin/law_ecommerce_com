@@ -21,12 +21,12 @@
       <div class="page-service__bg">
         <div class="page-service__bg--pc">
           <picture>
-            <source srcset="/storage/service/{{ $card->photo }}" type="image/webp"><img src="/storage/service/{{ $card->photo }}" alt="">
+            <source srcset="/storage/app/public/service/{{ $card->photo }}" type="image/webp"><img src="/storage/app/public/service/{{ $card->photo }}" alt="">
           </picture>
         </div>
         <div class="page-service__bg--mob">
           <picture>
-            <source srcset="/storage/service/{{ $card->photo_mobile }}" type="image/webp"><img src="/storage/service/{{ $card->photo_mobile }}" alt="">
+            <source srcset="/storage/app/public/service/{{ $card->photo_mobile }}" type="image/webp"><img src="/storage/app/public/service/{{ $card->photo_mobile }}" alt="">
           </picture>
         </div>
       </div>
@@ -147,7 +147,7 @@
               <div class="reviews__main">
                 <div class="reviews__avatar lazy_image">
                   <picture>
-                    <source data-srcset="/storage/service/{{ $review->photo }}" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/storage/service/{{ $review->photo }}" alt="">
+                    <source data-srcset="/storage/app/public/service/{{ $review->photo }}" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/storage/app/public/service/{{ $review->photo }}" alt="">
                   </picture>
                 </div>
                 <div class="reviews__block">

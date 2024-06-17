@@ -297,7 +297,7 @@
               <a href="{{ route('service.show', $card->slug) }}" class="services-tabs__item">
                 <div class="services-tabs__row">
                   <div class="services-tabs__icon lazy_image">
-                    <img data-src="/storage/service/{{$card->icon}}" alt="">
+                    <img data-src="/storage/app/public/service/{{$card->icon}}" alt="">
                   </div>
                   <div class="services-tabs__rating rating">
                     <div class="rating__row">
@@ -333,7 +333,7 @@
               <a href="{{ route('service.show', $card->slug) }}" class="services-tabs__item">
                 <div class="services-tabs__row">
                   <div class="services-tabs__icon lazy_image">
-                    <img data-src="/storage/service/{{$card->icon}}" alt="">
+                    <img data-src="/storage/app/public/service/{{$card->icon}}" alt="">
                   </div>
                   <div class="services-tabs__rating rating">
                     <div class="rating__row">
@@ -439,7 +439,7 @@
               <div class="reviews__main">
                 <div class="reviews__avatar lazy_image">
                   <picture>
-                    <source data-srcset="/storage/service/{{ $review->photo }}" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/storage/service/{{ $review->photo }}" alt="">
+                    <source data-srcset="/storage/app/public/service/{{ $review->photo }}" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/storage/app/public/service/{{ $review->photo }}" alt="">
                   </picture>
                 </div>
                 <div class="reviews__block">
