@@ -16,11 +16,11 @@
             <div class="header__block">
                 <div class="header__inner">
                     <nav class="header__menu menu">
-                        <ul data-spollers="767.98,max" data-one-spoller="" class="menu__list">
+                        <ul class="menu__list">
                             <li class="menu__item">
                                 <div class="menu__item--spollers menu-spollers">
-                                    <details class="menu-spollers__body">
-                                        <summary data-spoller data-spoller-close class="menu-spollers__summary">
+                                    <details class="menu-spollers__body" open>
+                                        <summary class="menu-spollers__summary _spoller-active">
                                             <button type="button" class="menu-spollers__title _icon-arrow-down">{{ __('Услуги') }}
                                             </button>
                                         </summary>
