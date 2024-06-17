@@ -280,7 +280,7 @@
         <a href="{{ route('service.category', 'all') }}" class="services__link--btn _icon-arrow-link">{{ __('Все услуги') }}</a>
       </div>
       @php
-      $defaultActiveIndex = 1;
+      $defaultActiveIndex = 0;
       @endphp
       <div data-tabs class="services__tabs tabs">
         <nav data-tabs-titles class="tabs__navigation">
