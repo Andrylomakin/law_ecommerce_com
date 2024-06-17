@@ -1,0 +1,17 @@
+.tabs-admin__navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 20px
+}
+
+.tabs-admin__title {
+    border: 1px solid #eee;
+    padding: 8px;
+    border-radius: .3125rem;
+    font-size: 14px
+}
+
+.tabs-admin__title._tab-active {
+    border: 1px solid #000
+}

@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+    mariadb:
+        image: mariadb:10.8.2
+        container_name: tgpro_mariadb
+        environment:
+            - MYSQL_ROOT_PASSWORD=9YMSjf3DG2N4
+            - MYSQL_USER=tgpro
+            - MYSQL_DATABASE=tgpro
+            - MYSQL_PASSWORD=2S5kYcY338td
+        ports:
+            - 9816:3306
+        volumes:
+            - mariadb_data:/var/lib/mysql
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: tgpro_phpmyadmin
+        environment:
+            - PMA_HOST=tgpro_mariadb
+            - UPLOAD_LIMIT=5242880000
+        ports:
+            - 9815:80
+volumes:
+    mariadb_data:

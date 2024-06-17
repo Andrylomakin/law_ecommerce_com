@@ -1,0 +1,35 @@
+.defender-image.hide {
+    display: none;
+}
+
+#preview-img-holder {
+    display: inline-block;
+    position: relative;
+}
+
+#crop-control {
+    position: absolute;
+    left: 100%;
+    margin-left: 5px;
+}
+
+#crop-control #crop-img,
+#crop-control #crop-cancel,
+#crop-control #crop-size {
+    display: none;
+    margin-bottom: 5px;
+}
+
+#crop-control #crop-size {
+    white-space: nowrap;
+}
+
+#crop-control.editing #crop-init {
+    display: none;
+}
+
+#crop-control.editing #crop-img,
+#crop-control.editing #crop-cancel,
+#crop-control.editing #crop-size {
+    display: block;
+}
