@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\SendMessageTelegram;
-use App\Jobs\SendDataCrm;
 use App\Models\Setting;
 use App\Rules\PhoneValidationRule;
 use Carbon\Carbon;
@@ -43,41 +42,13 @@ class FormController extends Controller
         session(['phoneSession' => $phoneNumberDigitsOnly]);
         session(['lastName' => $request->get('lastname')]);
 
-        // Api
-        if ($request->hasCookie('mpc3')) {
-            $cookieMpc3 = $request->cookie('mpc3');
-        }else{
-            $cookieMpc3 = false;
-        }
-        SendDataCrm::dispatch([
-            'userip' => $request->ip(),
-            'firstname' => $request->get('firstname'),
-            'lastname' => $request->get('lastname'),
-            'email' => $request->get('email'),
-            'phone' => $phoneNumberDigitsOnly,
-            'so' => $request->get('so'),
-            'sub' => 'FreeParam',
-            'MPC_1' => Carbon::now()->toDateTimeString(),
-            'MPC_2' => 'FreeParam',
-            'MPC_3' => $cookieMpc3,
-            'MPC_4' => $request->ip(),
-            'MPC_5' => 'FreeParam',
-            'MPC_6' => 'FreeParam',
-            'MPC_7' => 'FreeParam',
-            'MPC_8' => 'FreeParam',
-            'MPC_9' => 'FreeParam',
-            'MPC_10' => 'FreeParam',
-            'MPC_11' => 'FreeParam',
-            'MPC_12' => $request->get('so'),
-        ]);
-
-        // Telegram
-        $botApiToken = '6600076216:AAGBMdt3IAV80VZ3uPsh-LPY_BmppAmAA4g';
-        $chatId = '-1002038884100';
-        $telegram = new  SendMessageTelegram($botApiToken, $chatId);
-
         // Setting
         $setting = Setting::getSettings($request->getHost());
+
+        // Telegram
+        $botApiToken = $setting->telegram_token;
+        $chatId = $setting->telegram_chat_id;
+        $telegram = new  SendMessageTelegram($botApiToken, $chatId);
 
         $telegram->send([
             '*********************************',
