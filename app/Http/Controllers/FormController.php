@@ -15,16 +15,19 @@ class FormController extends Controller
 
     public function sendForm(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'firstname' => 'required|regex:/^[\p{L}\s]{2,}$/u',
-            'lastname' => 'nullable|min:2|max:255',
             'email' => 'nullable|email',
             'phone' => ['required', new PhoneValidationRule($request->input('country_code'))],
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors(), 'debug' => $request->cookie('mpc3')], 200);
+            $message_errors = [];
+
+            foreach ($validator->errors()->toArray() as $key => $error){
+                $message_errors[$key] = str_replace($key, '', $error);
+            }
+            return response()->json(['errors' => $message_errors, 'debug' => $request->cookie('mpc3')], 200);
         }
 
         // Отправляем заявку
