@@ -35,7 +35,7 @@
       </nav>
       <div class="footer__bottom">
         <div class="footer__allright">
-          <p>© 2024 insightCo. All rights reserved.</p>
+          <p>© {{ date('Y') }} {{ $settings->logo }}. All rights reserved.</p>
         </div>
         <div class="footer__socials">
           <a href="" data-popup="#popup-form" class="footer__socials--link _icon-facebook"></a>
