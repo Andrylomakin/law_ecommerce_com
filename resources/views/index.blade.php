@@ -529,4 +529,16 @@
   </div>
   @endsection
 </main>
+<style>
+    @media (min-width: 47.99875em) {
+        .main__body {
+            height: 257px;
+        }
+    }
+    @media (max-width: 47.99875em) {
+        .main__body {
+            height: 273px;
+        }
+    }
+</style>
 @endsection
