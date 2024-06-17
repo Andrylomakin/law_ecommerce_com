@@ -495,10 +495,10 @@
             @csrf
             <div class="form-contacts__inner">
               <div class="form-contacts__item">
-                <input placeholder="{{ __('Имя*') }}" class="form-contacts__input" name="lastname" type="text">
+                <input placeholder="{{ __('Имя*') }}" class="form-contacts__input" name="firstname" type="text">
               </div>
               <div class="form-contacts__item">
-                <input placeholder="{{ __('Фамилия*') }}" class="form-contacts__input" name="firstname" type="text">
+                <input placeholder="{{ __('Фамилия*') }}" class="form-contacts__input" name="lastname" type="text">
               </div>
               <div class="form-contacts__item">
                 <input placeholder="Email*" class="form-contacts__input" name="email" type="email">
