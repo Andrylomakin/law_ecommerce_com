@@ -90,3 +90,10 @@
         </div>
     </div>
 </header>
+<style>
+    @media (max-width: 768px) {
+        ._spoller-active{
+            display: none;
+        }
+    }
+</style>
