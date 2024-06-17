@@ -63,7 +63,7 @@
               <input placeholder="{{ __('Фамилия*') }}" class="form-contacts__input" name="lastname" type="text">
             </div>
             <div class="form-contacts__item">
-              <input placeholder="Email*" class="form-contacts__input" name="email" type="email">
+              <input placeholder="Email" class="form-contacts__input" name="email" type="email">
             </div>
             <div class="form-contacts__item">
               <input class="form-contacts__input phone-mask" name="phone" type="tel">
@@ -285,7 +285,7 @@
               <input placeholder="{{ __('Фамилия*') }}" class="form-contacts__input" name="lastname" type="text">
             </div>
             <div class="form-contacts__item">
-              <input placeholder="Email*" class="form-contacts__input" name="email" type="email">
+              <input placeholder="Email" class="form-contacts__input" name="email" type="email">
             </div>
             <div class="form-contacts__item">
               <input class="form-contacts__input phone-mask" name="phone" type="tel">
