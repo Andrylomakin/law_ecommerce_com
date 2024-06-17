@@ -18,17 +18,13 @@ class FormController extends Controller
 
         $validator = Validator::make($request->all(), [
             'firstname' => 'required|regex:/^[\p{L}\s]{2,}$/u',
-            'lastname' => 'required|regex:/^[\p{L}\s]{2,}$/u',
-            'email' => 'required|email',
+            'lastname' => 'nullable|min:2|max:255',
+            'email' => 'nullable|email',
             'phone' => ['required', new PhoneValidationRule($request->input('country_code'))],
         ]);
 
         if ($validator->fails()) {
-            $errors = [];
-            foreach ($validator->errors()->messages() as $fieldName => $fieldErrors) {
-                $errors[$fieldName] = __('Обязательное поле');
-            }
-            return response()->json(['errors' => $errors, 'debug' => $request->cookie('mpc3')], 200);
+            return response()->json(['errors' => $validator->errors(), 'debug' => $request->cookie('mpc3')], 200);
         }
 
         // Отправляем заявку
