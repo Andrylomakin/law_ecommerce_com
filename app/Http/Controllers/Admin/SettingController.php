@@ -18,7 +18,7 @@ class SettingController extends Controller
 
     public function create()
     {
-        $fields = ['domain', 'google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email'];
+        $fields = ['domain', 'google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token'];
         $radioFields = [
             'determine_by_ip_language' => [
                 'type'   => 'radio',
@@ -26,17 +26,17 @@ class SettingController extends Controller
                 'action' => ['update', 'store'],
                 'group'  => 'setting',
                 'values' => [
-                    true => 'Да',
+                    true  => 'Да',
                     false => 'Нет'
                 ]
             ]
         ];
         $languages = [];
-        foreach (config('settings.languages') as $key => $value){
+        foreach (config('settings.languages') as $key => $value) {
             $languages[$key] = $value['code'];
         }
         $checkboxFields = [
-            'intl_tel_input'           => [
+            'intl_tel_input' => [
                 'type'   => 'checkbox',
                 'title'  => 'Какие маски телефонов выводим',
                 'action' => ['update', 'store'],
@@ -59,6 +59,8 @@ class SettingController extends Controller
             'logo'                   => 'required|min:3',
             'telegram_tittle'        => 'required|min:3',
             'stylesheet'             => 'required|min:3',
+            'telegram_token'         => 'required|min:3',
+            'telegram_chat_id'       => 'required|min:3',
             'email'                  => 'required|min:3|email',
         ]);
 
@@ -80,7 +82,7 @@ class SettingController extends Controller
 
     public function edit($id)
     {
-        $fields = ['google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email'];
+        $fields = ['google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token'];
         $radioFields = [
             'determine_by_ip_language' => [
                 'type'   => 'radio',
@@ -88,17 +90,17 @@ class SettingController extends Controller
                 'action' => ['update', 'store'],
                 'group'  => 'setting',
                 'values' => [
-                    true => 'Да',
+                    true  => 'Да',
                     false => 'Нет'
                 ]
             ]
         ];
         $languages = [];
-        foreach (config('settings.languages') as $key => $value){
+        foreach (config('settings.languages') as $key => $value) {
             $languages[$key] = $value['code'];
         }
         $checkboxFields = [
-            'intl_tel_input'           => [
+            'intl_tel_input' => [
                 'type'   => 'checkbox',
                 'title'  => 'Какие маски телефонов выводим',
                 'action' => ['update', 'store'],
@@ -115,7 +117,7 @@ class SettingController extends Controller
                 'domain' => $setting->domain,
             ] + $settingsArray;
 
-        return view('admin.setting.edit', compact('fields', 'setting', 'radioFields','checkboxFields'));
+        return view('admin.setting.edit', compact('fields', 'setting', 'radioFields', 'checkboxFields'));
     }
 
     public function update(Request $request)
@@ -128,6 +130,8 @@ class SettingController extends Controller
             'logo'                   => 'required|min:3',
             'telegram_tittle'        => 'required|min:3',
             'stylesheet'             => 'required|min:3',
+            'telegram_token'         => 'required|min:3',
+            'telegram_chat_id'       => 'required|min:3',
             'email'                  => 'required|min:3|email',
         ]);
 
