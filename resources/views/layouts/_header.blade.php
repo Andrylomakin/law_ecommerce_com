@@ -96,4 +96,11 @@
             display: none;
         }
     }
+    .page-service__wrapper{
+        max-width: 100%;
+        margin-left: 0;
+    }
+    .page-service__link--btn{
+        margin-right: auto;
+    }
 </style>
