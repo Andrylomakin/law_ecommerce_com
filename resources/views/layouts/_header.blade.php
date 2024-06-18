@@ -92,7 +92,7 @@
 </header>
 <style>
     @media (max-width: 768px) {
-        ._spoller-active{
+        header ._spoller-active{
             display: none;
         }
     }
