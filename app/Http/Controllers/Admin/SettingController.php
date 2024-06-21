@@ -20,16 +20,17 @@ class SettingController extends Controller
     {
         $fields = ['domain', 'google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token'];
         $radioFields = [
-            'determine_by_ip_language' => [
+            'determine_language_by' => [
                 'type'   => 'radio',
-                'title'  => 'Определять язык по IP',
+                'title'  => 'Определять язык',
                 'action' => ['update', 'store'],
                 'group'  => 'setting',
                 'values' => [
-                    true  => 'Да',
-                    false => 'Нет'
+                    false => 'Нет',
+                    'ip'  => 'По ip определяем язык',
+                    'browser' => 'Язык браузера'
                 ]
-            ]
+            ],
         ];
         $languages = [];
         foreach (config('settings.languages') as $key => $value) {
@@ -84,16 +85,17 @@ class SettingController extends Controller
     {
         $fields = ['google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token'];
         $radioFields = [
-            'determine_by_ip_language' => [
+            'determine_language_by' => [
                 'type'   => 'radio',
-                'title'  => 'Определять язык по IP',
+                'title'  => 'Определять язык',
                 'action' => ['update', 'store'],
                 'group'  => 'setting',
                 'values' => [
-                    true  => 'Да',
-                    false => 'Нет'
+                    false => 'Нет',
+                    'ip'  => 'По ip определяем язык',
+                    'browser' => 'Язык браузера'
                 ]
-            ]
+            ],
         ];
         $languages = [];
         foreach (config('settings.languages') as $key => $value) {

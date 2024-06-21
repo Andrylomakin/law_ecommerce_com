@@ -47,18 +47,34 @@ class SetLanguage
 
     public function handle($request, Closure $next)
     {
+        if(!isset($_SERVER['HTTP_HOST'])){
+            return $next($request);
+        }
+
+        $setting = Setting::getSettings($_SERVER['HTTP_HOST']);
         $prefixCurrent = SetLanguage::getLocale();
         $languages = config('settings.languages');
         if (!$prefixCurrent) {
             $prefixCurrent = config('settings.mainLanguage');
         }
+
+        // Если сессии нет
         if (!Session::has('language')) {
-            // Если сессии нет
-            $prefixByCountryUser = $this->getUserLanguageByIP($request->ip());
+
+            // Определяем настройку какой язык будем выводить
+            if($setting->determine_language_by == 'ip'){
+                $prefixByCountryUser = $this->getUserLanguageByIP($request->ip());
+            }elseif ($setting->determine_language_by == 'browser'){
+                $prefixByCountryUser = $this->getUserLanguageByBrowser();
+            }else{
+                $prefixByCountryUser = $prefixCurrent;
+            }
+
+
             if ($prefixByCountryUser == $prefixCurrent) {
                 $language = $prefixByCountryUser;
-            }elseif (isset($languages[$prefixCurrent])) {
-                $language = $prefixCurrent;
+            }elseif (isset($languages[$prefixByCountryUser])) {
+                $language = $prefixByCountryUser;
             }else{
                 $language = $prefixCurrent;
             }
@@ -66,7 +82,9 @@ class SetLanguage
             App::setLocale($language);
             $url = '/' . self::parseRequestUri($language, $request->getRequestUri());
             Session::put('language', $language);
-            Redirect::to($url, 301);
+            if($url != $request->getRequestUri()){
+                return response()->redirectTo($url, 301);
+            }
         } else {
             Session::put('language', $prefixCurrent);
             App::setLocale($prefixCurrent);
@@ -78,24 +96,42 @@ class SetLanguage
     // Получаем язык пользователя по IP
     private function getUserLanguageByIP($ip)
     {
-        $setting = Setting::getSettings($_SERVER['HTTP_HOST']);
-        if(isset($setting->determine_by_ip_language)){
-            if(!empty($setting->determine_by_ip_language) AND $ip){
-                $setip = GeoIP::setIp($ip);
-                $countryCode = GeoIP::getCountryCode($setip);
-                return $this->getLocaleByCountryCode($countryCode);
-            }else{
-                return config('settings.mainLanguage');
+        $setip = GeoIP::setIp($ip);
+        $countryCode = GeoIP::getCountryCode($setip);
+        return $this->getLocaleByCountryCode($countryCode);
+    }
+
+    // Получаем язык пользователя по языку в браузере
+    private function getUserLanguageByBrowser()
+    {
+        $browserLanguages = $this->getBrowserLanguages();
+        $settings = config('settings');
+
+        if (!empty($browserLanguages)) {
+            foreach ($browserLanguages as $lang) {
+                if (isset($settings['languages'][$lang]['code'])) {
+                    return $settings['languages'][$lang]['code'];
+                }
             }
         }else{
-            if($ip){
-                $setip = GeoIP::setIp($ip);
-                $countryCode = GeoIP::getCountryCode($setip);
-                return $this->getLocaleByCountryCode($countryCode);
-            }else{
-                return config('settings.mainLanguage');
+            return config('settings.mainLanguage');
+        }
+    }
+
+// Получаем языки из браузера
+    private function getBrowserLanguages()
+    {
+        $browserLanguages = [];
+
+        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $acceptedLanguages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            foreach ($acceptedLanguages as $lang) {
+                $langParts = explode(';', $lang);
+                $browserLanguages[] = strtolower(trim($langParts[0]));
             }
         }
+
+        return $browserLanguages;
     }
 
     // Берем ссылку без домена и ищем языковый префикс, удаляем его и добавляем новый
