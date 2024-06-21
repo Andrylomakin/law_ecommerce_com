@@ -4,7 +4,7 @@ return [
     // Для переводчика
     'mainLanguageAdmin' => 'ru',
     'mainLanguage'      => 'en',
-    'languageCodes'     => ["en", "in", "tr", "es", "de", "fr", "it", "nl", "pl", "ru", 'cs'],
+    'languageCodes'     => ["en", "in", "tr", "es", "de", "fr", "it", "nl", "pl", "ru", 'cs', 'ua'],
     'languages'         => [
         'en' => [
             'code'      => 'en',
@@ -61,6 +61,11 @@ return [
             'translate' => 'cs',
             'title'     => 'Чешский',
         ],
+        'ua' => [
+            'code'      => 'ua',
+            'translate' => 'uk',
+            'title'     => 'Украинский',
+        ],
     ],
     'countries'         => [
         91  => "IN",
@@ -72,7 +77,8 @@ return [
         31  => "NL",
         48  => "PL",
         7   => "RU",
-        420 => 'CS'
+        420 => 'CS',
+        380 => 'UK',
     ]
 ];
 
