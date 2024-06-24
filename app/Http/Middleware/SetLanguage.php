@@ -37,7 +37,7 @@ class SetLanguage
 
     public function handle($request, Closure $next)
     {
-        if (!isset($_SERVER['HTTP_HOST'])) {
+        if ($request->is('admin*') OR $request->is('admin')) {
             return $next($request);
         }
 
