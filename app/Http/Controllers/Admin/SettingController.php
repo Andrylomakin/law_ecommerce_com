@@ -18,7 +18,7 @@ class SettingController extends Controller
 
     public function create()
     {
-        $fields = ['domain', 'google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token', 'telegram', 'viber', 'whatsapp'];
+        $fields = ['domain', 'google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token', 'telegram', 'viber', 'whatsapp','google_tags_conversion_telegram', 'google_tags_conversion_viber', 'google_tags_conversion_whatsapp'];
         $radioFields = [
             'determine_language_by' => [
                 'type'   => 'radio',
@@ -86,7 +86,7 @@ class SettingController extends Controller
 
     public function edit($id)
     {
-        $fields = ['google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token', 'telegram', 'viber', 'whatsapp'];
+        $fields = ['google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token', 'telegram', 'viber', 'whatsapp','google_tags_conversion_telegram', 'google_tags_conversion_viber', 'google_tags_conversion_whatsapp'];
         $radioFields = [
             'determine_language_by' => [
                 'type'   => 'radio',
