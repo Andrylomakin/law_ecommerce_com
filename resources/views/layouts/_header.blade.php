@@ -103,4 +103,8 @@
     .page-service__link--btn{
         margin-right: auto;
     }
+
+    .footer__socials--link:hover{
+        opacity: 0.5;
+    }
 </style>
