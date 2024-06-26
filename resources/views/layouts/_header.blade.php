@@ -62,7 +62,7 @@
                         </ul>
                         <input type="text" name="select-language" value="" data-dropdown-input class="language__input">
                     </div>
-
+                    @include('blocks.socials_white')
                     <div class="header__language-mob language-mob">
                         @foreach($languages as $language)
                             <div class="language-mob__item">
@@ -80,8 +80,6 @@
                             </div>
                         @endforeach
                     </div>
-
-                    @include('blocks.socials_white')
                 </div>
                 <div class="header__wrap">
                     <button type="button" class="header__icon icon-menu"><span></span></button>
@@ -110,6 +108,13 @@
             flex-direction: column;
             justify-content: center;
             gap: 15px;
+        }
+        .header .socials{
+            margin-left: 0;
+            margin-bottom: 20px;
+        }
+        .menu{
+            margin-bottom: 10px;
         }
     }
     .page-service__wrapper{
