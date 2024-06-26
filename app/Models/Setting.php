@@ -16,10 +16,12 @@ class Setting extends Model
         $setting = Setting::where('domain', '=', $domain)->first();
         if ($setting) {
             $settings = json_decode($setting->settings);
-
+            $countries = config('settings.countries');
             if(isset($settings->intl_tel_input)){
                 foreach ($settings->intl_tel_input as $value){
-                    $settings->tel_mask[] = $value;
+                    if(isset($countries[$value])){
+                        $settings->tel_mask[] = $countries[$value];
+                    }
                 }
                 $settings->tel_mask = implode(',', array_map(function($item) {
                     return "'$item'";

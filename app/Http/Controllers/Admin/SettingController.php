@@ -32,9 +32,9 @@ class SettingController extends Controller
                 ]
             ],
         ];
-        $languages = [];
-        foreach (config('settings.languages') as $key => $value) {
-            $languages[$key] = $value['code'];
+        $countries = [];
+        foreach (config('settings.countries') as $key => $value) {
+            $countries[$key] = $value;
         }
         $checkboxFields = [
             'intl_tel_input' => [
@@ -42,7 +42,7 @@ class SettingController extends Controller
                 'title'  => 'Какие маски телефонов выводим',
                 'action' => ['update', 'store'],
                 'group'  => 'setting',
-                'values' => $languages
+                'values' => $countries
             ]
         ];
 
@@ -100,9 +100,9 @@ class SettingController extends Controller
                 ]
             ],
         ];
-        $languages = [];
-        foreach (config('settings.languages') as $key => $value) {
-            $languages[$key] = $value['code'];
+        $countries = [];
+        foreach (config('settings.countries') as $key => $value) {
+            $countries[$key] = $value;
         }
         $checkboxFields = [
             'intl_tel_input' => [
@@ -110,7 +110,7 @@ class SettingController extends Controller
                 'title'  => 'Какие маски телефонов выводим',
                 'action' => ['update', 'store'],
                 'group'  => 'setting',
-                'values' => $languages
+                'values' => $countries
             ]
         ];
 
