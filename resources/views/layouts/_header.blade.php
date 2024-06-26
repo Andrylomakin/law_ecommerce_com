@@ -91,9 +91,20 @@
     </div>
 </header>
 <style>
+    .form-contacts__footers{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+    }
     @media (max-width: 768px) {
         header ._spoller-active{
             display: none;
+        }
+        .form-contacts__footers{
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
         }
     }
     .page-service__wrapper{
@@ -105,6 +116,19 @@
     }
 
     .footer__socials--link:hover{
+        opacity: 0.5;
+    }
+    .socials{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 15px;
+    }
+    .socials__item--link{
+        cursor: pointer;
+    }
+    .socials__item--link:hover{
         opacity: 0.5;
     }
 </style>
