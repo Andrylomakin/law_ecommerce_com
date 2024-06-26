@@ -80,6 +80,8 @@
                             </div>
                         @endforeach
                     </div>
+
+                    @include('blocks.socials_white')
                 </div>
                 <div class="header__wrap">
                     <button type="button" class="header__icon icon-menu"><span></span></button>
@@ -96,6 +98,9 @@
         justify-content: space-between;
         align-items: center;
         align-content: center;
+    }
+    .header .socials{
+        margin-left: 40px;
     }
     @media (max-width: 768px) {
         header ._spoller-active{

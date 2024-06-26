@@ -84,7 +84,7 @@
           var intl_tel_input_mask = [{!! $settings->tel_mask !!}];
           var initialCountry = '{{ config('settings.mask')[app()->getLocale()] }}';
 
-          @if($settings->google_tags_conversion_viber)
+          @if(isset($settings->google_tags_conversion_viber) AND $settings->google_tags_conversion_viber)
           var viberButtons = document.querySelectorAll('._viber');
           if (viberButtons) {
               viberButtons.forEach(function(button) {
@@ -94,7 +94,7 @@
               });
           }
           @endif
-          @if($settings->google_tags_conversion_whatsapp)
+          @if(isset($settings->google_tags_conversion_whatsapp) AND $settings->google_tags_conversion_whatsapp)
           var whatsappButtons = document.querySelectorAll('._whatsapp');
           if (whatsappButtons) {
               whatsappButtons.forEach(function(button) {
@@ -104,7 +104,7 @@
               });
           }
           @endif
-          @if($settings->google_tags_conversion_telegram)
+          @if(isset($settings->google_tags_conversion_telegram) AND $settings->google_tags_conversion_telegram)
           var telegramButtons = document.querySelectorAll('._telegram');
           if (telegramButtons) {
               telegramButtons.forEach(function(button) {
