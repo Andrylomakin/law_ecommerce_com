@@ -77,8 +77,9 @@ return [
         31  => "NL",
         48  => "PL",
         7   => "RU",
-        420 => 'CS',
-        380 => 'UK',
+        420  => "CS", // Czech Republic
+        380  => "UK",
+        1    => "US", // United States
     ]
 ];
 

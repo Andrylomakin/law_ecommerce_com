@@ -18,7 +18,7 @@ class SettingController extends Controller
 
     public function create()
     {
-        $fields = ['domain', 'google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token','telegram','viber','whatsapp'];
+        $fields = ['domain', 'google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token', 'telegram', 'viber', 'whatsapp'];
         $radioFields = [
             'determine_language_by' => [
                 'type'   => 'radio',
@@ -26,8 +26,8 @@ class SettingController extends Controller
                 'action' => ['update', 'store'],
                 'group'  => 'setting',
                 'values' => [
-                    false => 'Нет',
-                    'ip'  => 'По ip определяем язык',
+                    false     => 'Нет',
+                    'ip'      => 'По ip определяем язык',
                     'browser' => 'Язык браузера'
                 ]
             ],
@@ -62,6 +62,9 @@ class SettingController extends Controller
             'stylesheet'             => 'required|min:3',
             'telegram_token'         => 'required|min:3',
             'telegram_chat_id'       => 'required|min:3',
+            'telegram'               => 'required|min:3',
+            'viber'                  => 'required|min:3',
+            'whatsapp'               => 'required|min:3',
             'email'                  => 'required|min:3|email',
         ]);
 
@@ -83,7 +86,7 @@ class SettingController extends Controller
 
     public function edit($id)
     {
-        $fields = ['google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token','telegram','viber','whatsapp'];
+        $fields = ['google_tags', 'google_tags_conversion', 'fb_pixel', 'verification_domain', 'logo', 'telegram_tittle', 'stylesheet', 'email', 'telegram_chat_id', 'telegram_token', 'telegram', 'viber', 'whatsapp'];
         $radioFields = [
             'determine_language_by' => [
                 'type'   => 'radio',
@@ -91,8 +94,8 @@ class SettingController extends Controller
                 'action' => ['update', 'store'],
                 'group'  => 'setting',
                 'values' => [
-                    false => 'Нет',
-                    'ip'  => 'По ip определяем язык',
+                    false     => 'Нет',
+                    'ip'      => 'По ip определяем язык',
                     'browser' => 'Язык браузера'
                 ]
             ],
@@ -134,6 +137,9 @@ class SettingController extends Controller
             'stylesheet'             => 'required|min:3',
             'telegram_token'         => 'required|min:3',
             'telegram_chat_id'       => 'required|min:3',
+            'telegram'               => 'required|min:3',
+            'viber'                  => 'required|min:3',
+            'whatsapp'               => 'required|min:3',
             'email'                  => 'required|min:3|email',
         ]);
 
