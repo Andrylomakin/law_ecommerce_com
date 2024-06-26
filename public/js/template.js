@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
             useFullscreenPopup: false,
             showSelectedDialCode: true,
             onlyCountries: intl_tel_input_mask,
+            initialCountry: initialCountry,
             customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
                 let mask = `${selectedCountryPlaceholder}`.replace(/[0-9]/g, '9');
                 let maskPlaceholder = `${mask}`.replace(/9/g, " ");

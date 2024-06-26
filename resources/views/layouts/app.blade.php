@@ -82,6 +82,7 @@
     <script src='{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js?_v=20240307195727') }}'></script>
       <script>
           var intl_tel_input_mask = [{!! $settings->tel_mask !!}];
+          var initialCountry = '{{ config('settings.mask')[app()->getLocale()] }}';
       </script>
     <script src="{{ asset('js/template.js') }}"></script>
     <script src="{{ asset('js/app.min.js?_v=20240321114455') }}"></script>

@@ -80,6 +80,21 @@ return [
         420  => "CZ", // Czech Republic
         380  => "UA",
         1    => "US", // United States
+    ],
+    'mask' => [
+        'en' => 'us',
+        'in' => 'in',
+        'tr' => 'tr',
+        'es' => 'es',
+        'de' => 'de',
+        'fr' => 'fr',
+        'it' => 'it',
+        'nl' => 'nl',
+        'pl' => 'pl',
+        'ru' => 'ru',
+        'cs' => 'cz',
+        'ua' => 'ua',
     ]
+
 ];
 
