@@ -74,8 +74,6 @@
     @yield('content')
 
     @include('layouts._footer')
-
-    @include('layouts._popup')
     <script src='{{ asset('https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js?_v=20240307195727') }}'></script>
     <script src="{{ asset('https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.5/build/js/intlTelInput.min.js?_v=20240307195727') }}"></script>
     <script src='{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js?_v=20240307195727') }}'></script>
@@ -139,6 +137,20 @@
               border-bottom-color: var(--accent);
           }
       </style>
+
+      @include('layouts._popup')
+      <script>
+          document.addEventListener("afterPopupOpen", function (e) {
+              const currentPopup = e.detail.popup;
+              if(document.querySelector(currentPopup.hash).classList.contains('popup_show') == false){
+                  document.querySelector(currentPopup.hash).classList.add('popup_show')
+              }
+          });
+          document.addEventListener("afterPopupClose", function (e) {
+              const currentPopup = e.detail.popup;
+              document.querySelector(currentPopup.hash).classList.remove('popup_show');
+          });
+      </script>
   </div>
 </body>
 
