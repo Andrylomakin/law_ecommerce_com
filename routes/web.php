@@ -85,6 +85,4 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/{lang}', [LanguageController::class, 'index'])
-//        ->where('lang', "in"|"tr"|"es"|"de"|"fr"|"it"|"nl"|"pl"|"ru")
-    ->name('lang');
+Route::get('/{lang}', [LanguageController::class, 'index'])->name('lang');
