@@ -81,7 +81,7 @@
     <script src='{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js?_v=20240307195727') }}'></script>
       <script>
           var intl_tel_input_mask = [{!! $settings->tel_mask !!}];
-          var initialCountry = '{{ config('settings.mask')[app()->getLocale()] }}';
+          var initialCountry = '{{ $phone_mask }}';
 
           @if(isset($settings->google_tags_conversion_viber) AND $settings->google_tags_conversion_viber)
           var viberButtons = document.querySelectorAll('._viber');

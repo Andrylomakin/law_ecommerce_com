@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Middleware\SetLanguage;
+use App\Models\PhoneMask;
 use App\Models\SeoLading;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
@@ -47,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('layouts.app', function ($view) {
             $view->with('seo', SeoLading::query()->first());
+            $view->with('phone_mask', PhoneMask::getMask());
         });
 
         Carbon::setLocale(config('app.locale'));
