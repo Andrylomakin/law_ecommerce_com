@@ -141,4 +141,14 @@
     .socials__item--link:hover{
         opacity: 0.5;
     }
+    .popup-form__inner .form-contacts__footers{
+        flex-direction: row-reverse;
+    }
+    .popup-form__inner .form-contacts__submit--btn-gr{
+        margin-left: 0;
+    }
+    .iti__flag.iti__ru{
+        opacity: 0.5;
+        filter: grayscale(100%);
+    }
 </style>
