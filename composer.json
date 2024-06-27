@@ -9,6 +9,7 @@
         "alexusmai/laravel-file-manager": "^3.1",
         "giggsey/libphonenumber-for-php": "^8.13",
         "guzzlehttp/guzzle": "^7.2",
+        "jenssegers/agent": "^2.6",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
@@ -17,7 +18,10 @@
         "tanmuhittin/laravel-google-translate": "^2.3"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.9.1",
+        "laravel-lang/common": "^3.1",
+        "laravel-lang/lang": "^12.17",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
