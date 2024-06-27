@@ -82,6 +82,16 @@ Route::middleware('auth')->group(function () {
     // Localization
     Route::get('/admin/template/localization', [\App\Http\Controllers\Admin\Template\LocalizationController::class, 'index'])->name('admin.template.localization.index');
     Route::post('/admin/template/localization/edit', [\App\Http\Controllers\Admin\Template\LocalizationController::class, 'edit'])->name('admin.template.localization.edit');
+
+    // Pages
+    Route::get('/admin/page/', [App\Http\Controllers\Admin\PageController::class, 'index'])->name('admin.page.index');
+    Route::get('/admin/page/{id}', [App\Http\Controllers\Admin\PageController::class, 'edit'])->name('admin.page.edit');
+    Route::get('/admin/page/{id}/destroy', [App\Http\Controllers\Admin\PageController::class, 'destroy'])->name('admin.page.destroy');
+
+    Route::put('/admin/page/{id}/update', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('admin.page.update');
+
+    Route::post('/admin/page/create', [App\Http\Controllers\Admin\PageController::class, 'create'])->name('admin.page.create');
+
 });
 
 
