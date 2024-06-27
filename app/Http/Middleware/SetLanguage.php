@@ -16,7 +16,6 @@ class SetLanguage
     {
         $uri = Request::path();
         $segmentsURI = explode('/', $uri);
-
         if (!empty($segmentsURI[0]) && in_array($segmentsURI[0], config('settings.languageCodes'))) {
             if ($segmentsURI[0] !== config('settings.mainLanguage')) {
                 return $segmentsURI[0];
@@ -72,11 +71,11 @@ class SetLanguage
                 $language = $prefixCurrent;
             }
 
-            App::setLocale($language);
             $url = '/' . self::parseRequestUri($language, $request->getRequestUri());
+            App::setLocale($language);
             Session::put('language', $language);
 
-            if ($url != $request->getRequestUri()) {
+            if (rtrim($url, '/') != $request->getRequestUri()) {
                 return response()->redirectTo($url, 301);
             }
         } else {
