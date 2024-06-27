@@ -83,36 +83,28 @@
           var intl_tel_input_mask = [{!! $settings->tel_mask !!}];
           var initialCountry = '{{ $phone_mask }}';
 
-          @if(isset($settings->google_tags_conversion_viber) AND $settings->google_tags_conversion_viber)
-          var viberButtons = document.querySelectorAll('._viber');
-          if (viberButtons) {
-              viberButtons.forEach(function(button) {
+          @if(isset($settings->google_tags_conversion_social) AND $settings->google_tags_conversion_social)
+          var socialButtons = document.querySelectorAll('._viber, ._whatsapp, ._telegram');
+          if (socialButtons) {
+              socialButtons.forEach(function(button) {
                   button.addEventListener('click', function(e) {
-                      gtag('event', 'conversion', {'send_to': '{{ $settings->google_tags_conversion_viber }}', 'transaction_id': ''});
+                      gtag('event', 'conversion', {'send_to': '{{ $settings->google_tags_conversion_social }}', 'transaction_id': ''});
                   });
               });
           }
           @endif
-          @if(isset($settings->google_tags_conversion_whatsapp) AND $settings->google_tags_conversion_whatsapp)
-          var whatsappButtons = document.querySelectorAll('._whatsapp');
-          if (whatsappButtons) {
-              whatsappButtons.forEach(function(button) {
+          @if(isset($settings->fb_conversion_social) AND $settings->fb_conversion_social)
+          var socialButtons2 = document.querySelectorAll('._viber, ._whatsapp, ._telegram');
+          if (socialButtons2) {
+              socialButtons2.forEach(function(button) {
                   button.addEventListener('click', function(e) {
-                      gtag('event', 'conversion', {'send_to': '{{ $settings->google_tags_conversion_whatsapp }}', 'transaction_id': ''});
+                      fbq('track', '{{ $settings->fb_conversion_social }}');
                   });
               });
           }
           @endif
-          @if(isset($settings->google_tags_conversion_telegram) AND $settings->google_tags_conversion_telegram)
-          var telegramButtons = document.querySelectorAll('._telegram');
-          if (telegramButtons) {
-              telegramButtons.forEach(function(button) {
-                  button.addEventListener('click', function(e) {
-                      gtag('event', 'conversion', {'send_to': '{{ $settings->google_tags_conversion_telegram }}', 'transaction_id': ''});
-                  });
-              });
-          }
-          @endif
+
+
       </script>
     <script src="{{ asset('js/template.js') }}"></script>
     <script src="{{ asset('js/app.min.js?_v=20240321114455') }}"></script>
