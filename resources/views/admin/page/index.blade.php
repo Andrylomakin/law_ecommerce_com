@@ -29,6 +29,8 @@
                         <th>{{ __('ID') }}</th>
                         <th>Название</th>
                         <th>url</th>
+                        <th>Сортировка</th>
+                        <th>Статус</th>
                         <th class="text-end">#</th>
                     </tr>
                     </thead>
@@ -38,6 +40,8 @@
                             <td>{{ $page->id }}</td>
                             <td>{{ $page->name }}</td>
                             <td>{{ $page->slug }}</td>
+                            <td>{{ $page->sort_order }}</td>
+                            <td>{{ $page->status == 1 ? 'Включено' : 'Выключено' }}</td>
                             <td class="text-end">
                                 <div class="d-flex gap-4 justify-content-end">
                                     <button onclick="removePage({{$page->id}})" class="btn btn-link p-0 ms-2"
