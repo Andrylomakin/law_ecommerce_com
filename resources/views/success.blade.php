@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('codePixel')
-    {!! "fbq('track', 'Lead');" !!}
+    @if($not_send_target_fb == false)
+        {!! "fbq('track', 'Lead');" !!}
+    @endif
 @endsection
 
 @section('codeTags')
