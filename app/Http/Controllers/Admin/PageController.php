@@ -36,11 +36,6 @@ class PageController extends Controller
     public function edit($id)
     {
         $page = Page::findOrFail($id);
-        $page->title = json_decode($page->title, true);
-        $page->seo_h1 = json_decode($page->seo_h1, true);
-        $page->seo_title = json_decode($page->seo_title, true);
-        $page->seo_description = json_decode($page->seo_description, true);
-        $page->description = json_decode($page->description, true);
         return view('admin.page.edit', compact('page'));
     }
 

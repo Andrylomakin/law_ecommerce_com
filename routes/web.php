@@ -21,6 +21,7 @@ Route::group(['prefix' => \App\Http\Middleware\SetLanguage::getLocale()], functi
     Route::get('/service', [ServiceController::class, 'list'])->name('service.list');
     Route::get('/service/{slug}', [ServiceController::class, 'show'])->name('service.show');
     Route::get('/category/{slug}', [ServiceController::class, 'category'])->name('service.category');
+    Route::get('/page/{slug}', [\App\Http\Controllers\PageController::class, 'show'])->name('page.show');
     Route::get('/contact', [App\Http\Controllers\IndexController::class, 'contact'])->name('contact');
     Route::view('/success', 'success')->name('success');
     Route::view('/error', 'error')->name('error');

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Middleware\SetLanguage;
+use App\Models\Page;
 use App\Models\PhoneMask;
 use App\Models\SeoLading;
 use App\Models\ServiceCategory;
@@ -44,6 +45,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('layouts._footer', function ($view) {
             $view->with('categoryMenu', ServiceCategory::query()->orderBy('sort_order')->get());
+            $view->with('pages', Page::query()->where('status', '=', 1)->orderBy('sort_order')->get());
         });
 
         view()->composer('layouts.app', function ($view) {

@@ -1,5 +1,6 @@
 <footer class="footer">
     <div class="footer__container">
+        @if(trim($__env->yieldContent('seo')))
         <div class="footer__content content">
             <div class="content__wrapper baron">
                 @yield('seo')
@@ -8,6 +9,7 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="footer__main">
             <div class="footer__top">
                 <a href="{{ route('index') }}" class="footer__logo">
@@ -31,6 +33,13 @@
                         <li class="footer__item">
                             <a href="{{ route('service.category', $menu->slug) }}"
                                class="footer__link">{{ $menu->name[app()->getLocale()] }}</a>
+                        </li>
+                    @endforeach
+
+                    @foreach($pages as $page)
+                        <li class="footer__item">
+                            <a href="{{ route('page.show', $page->slug) }}"
+                               class="footer__link">{{ $page->title[app()->getLocale()] }}</a>
                         </li>
                     @endforeach
                 </ul>
