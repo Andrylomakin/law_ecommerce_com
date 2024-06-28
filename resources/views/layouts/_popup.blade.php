@@ -96,7 +96,10 @@
                     <input type="hidden" name="so" value="Invest">
                     <input type="hidden" name="url" value="{{ url()->current() }}">
                 </div>
-                <button type="submit" class="form-contacts__submit--btn-gr _icon-arrow-link">{{ __('Подтвердить') }}</button>
+                <div class="form-contacts__footers">
+                    <button type="submit" class="form-contacts__submit--btn-gr _icon-arrow-link">{{ __('Подтвердить') }}</button>
+                    @include('blocks.socials')
+                </div>
             </form>
         </div>
     </div>
