@@ -53,7 +53,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('phone_mask', PhoneMask::getMask());
         });
 
-        view()->composer('success', function ($view) {
+        Carbon::setLocale(config('app.locale'));
+
+        view()->composer('*', function ($view) {
+
             if (request()->cookie('not_send_target_fb')) {
                 $notSendTargetFb = true;
             } else {
@@ -61,12 +64,7 @@ class AppServiceProvider extends ServiceProvider
                 $notSendTargetFb = false;
             }
             $view->with('not_send_target_fb', $notSendTargetFb);
-        });
 
-
-        Carbon::setLocale(config('app.locale'));
-
-        view()->composer('*', function ($view) {
             $languageUrls = [];
 
             $currentLocale = request()->segment(1);

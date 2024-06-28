@@ -91,12 +91,16 @@
               });
           }
           @endif
-          @if(isset($settings->fb_conversion_social) AND $settings->fb_conversion_social)
+          @if(isset($settings->fb_conversion_social) AND $settings->fb_conversion_social AND $not_send_target_fb == false)
           var socialButtons2 = document.querySelectorAll('._viber, ._whatsapp, ._telegram');
+          var fbqCount = 0;
           if (socialButtons2) {
               socialButtons2.forEach(function(button) {
                   button.addEventListener('click', function(e) {
-                      fbq('track', '{{ $settings->fb_conversion_social }}');
+                      if(fbqCount == 0){
+                          fbq('track', '{{ $settings->fb_conversion_social }}');
+                          fbqCount++;
+                      }
                   });
               });
           }
