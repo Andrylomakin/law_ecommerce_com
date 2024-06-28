@@ -14,4 +14,10 @@
             </div>
         </section>
     </main>
+    <style>
+        .service-content__wrap ul{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 @endsection
