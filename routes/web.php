@@ -86,12 +86,11 @@ Route::middleware('auth')->group(function () {
     // Pages
     Route::get('/admin/page/', [App\Http\Controllers\Admin\PageController::class, 'index'])->name('admin.page.index');
     Route::get('/admin/page/{id}', [App\Http\Controllers\Admin\PageController::class, 'edit'])->name('admin.page.edit');
-    Route::get('/admin/page/{id}/destroy', [App\Http\Controllers\Admin\PageController::class, 'destroy'])->name('admin.page.destroy');
 
-    Route::put('/admin/page/{id}/update', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('admin.page.update');
+    Route::post('/admin/page/{id}/update', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('admin.page.update');
 
     Route::post('/admin/page/create', [App\Http\Controllers\Admin\PageController::class, 'create'])->name('admin.page.create');
-
+    Route::post('/admin/page/destroy', [App\Http\Controllers\Admin\PageController::class, 'destroy'])->name('admin.page.destroy');
 });
 
 

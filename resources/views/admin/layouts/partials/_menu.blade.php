@@ -43,7 +43,16 @@
                         </span>
                     </div>
                 </a>
-
+                <a class="nav-link" href="{{ route('admin.page.index') }}" role="button">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-icon">
+                            <span class="fas fa-tags"></span>
+                        </span>
+                        <span class="nav-link-text ps-1">
+                            Страницы
+                        </span>
+                    </div>
+                </a>
                 <a class="nav-link" href="{{ route('admin.seo.lading') }}" role="button">
                     <div class="d-flex align-items-center">
                         <span class="nav-link-icon">
