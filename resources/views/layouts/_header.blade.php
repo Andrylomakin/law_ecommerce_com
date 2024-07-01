@@ -62,7 +62,7 @@
                         </ul>
                         <input type="text" name="select-language" value="" data-dropdown-input class="language__input">
                     </div>
-                    @include('blocks.socials_white')
+                    @include('blocks.socials_sprite')
                     <div class="header__language-mob language-mob">
                         @foreach($languages as $language)
                             <div class="language-mob__item">
@@ -134,6 +134,10 @@
         align-items: center;
         align-content: center;
         gap: 15px;
+    }
+    .socials svg{
+        width: 20px;
+        height: 20px;
     }
     .socials__item--link{
         cursor: pointer;
