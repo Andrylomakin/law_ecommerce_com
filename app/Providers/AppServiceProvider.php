@@ -52,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('seo', SeoLading::query()->first());
             $view->with('phone_mask', PhoneMask::getMask());
         });
-        view()->composer('layouts.success', function ($view) {
+        view()->composer('success', function ($view) {
             cookie()->queue('not_send_target_fb', true, 1440);
         });
 
