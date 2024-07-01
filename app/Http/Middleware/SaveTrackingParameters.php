@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
 class SaveTrackingParameters
@@ -22,6 +23,12 @@ class SaveTrackingParameters
             if ($request->has($param)) {
                 Cookie::queue($param, $request->query($param), 4320); // сохраняем на 3 дня
             }
+        }
+
+        // Проверяем наличие заголовка Referer
+        if ($request->headers->has('referer') && !$request->cookies->has('referer')) {
+            $referer = $request->headers->get('referer');
+            Cookie::queue('referer', $referer, 4320); // сохраняем на 3 дня
         }
 
         return $next($request);

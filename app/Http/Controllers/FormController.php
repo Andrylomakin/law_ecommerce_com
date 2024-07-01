@@ -61,24 +61,18 @@ class FormController extends Controller
             $utm[] = Cookie::get('utm_source');
         }
 
+        if (Cookie::has('referer')) {
+            $referer = Cookie::get('referer');
+            if (strpos($referer, 'facebook') !== false) {
+                $utm[] = 'Facebook referer';
+            }
+        }
+
         if($utm){
             $utm = implode(', ', $utm);
         }else{
             $utm = 'Неизвестно';
         }
-
-        Log::info([
-            '*********************************',
-            '<b>' . $setting->telegram_tittle . '</b>',
-            '<b>' . 'Email: ' . '</b>' . $request->get('email'),
-            '<b>' . 'Имя: ' . '</b>' . $request->get('firstname'),
-            '<b>' . 'Фамилия: ' . '</b>' . $request->get('lastname'),
-            '<b>' . 'Телефон: ' . '</b>' . $phoneNumberDigitsOnly,
-            '<b>' . 'Языковая версия сайта: ' . '</b>' . App::getLocale(),
-            '<b>' . 'SO: ' . '</b>' . $request->get('so'),
-            '<b>' . 'URL: ' . '</b>' . $request->get('url'),
-            '<b>' . 'Откуда лид: ' . '</b>' . $utm,
-        ]);
 
         $telegram->send([
             '*********************************',
