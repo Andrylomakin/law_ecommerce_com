@@ -155,4 +155,8 @@
         opacity: 0.5;
         filter: grayscale(100%);
     }
+    .services-tabs__text ul{
+        display: flex;
+        flex-direction: column;
+    }
 </style>
