@@ -52,6 +52,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('seo', SeoLading::query()->first());
             $view->with('phone_mask', PhoneMask::getMask());
         });
+        view()->composer('layouts.success', function ($view) {
+            cookie()->queue('not_send_target_fb', true, 1440);
+        });
 
         Carbon::setLocale(config('app.locale'));
 
@@ -60,7 +63,6 @@ class AppServiceProvider extends ServiceProvider
             if (request()->cookie('not_send_target_fb')) {
                 $notSendTargetFb = true;
             } else {
-                cookie()->queue('not_send_target_fb', true, 1440);
                 $notSendTargetFb = false;
             }
             $view->with('not_send_target_fb', $notSendTargetFb);
