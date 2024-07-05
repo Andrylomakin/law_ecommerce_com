@@ -71,11 +71,11 @@ class SetLanguage
                 $language = $prefixCurrent;
             }
 
-            $url = '/' . self::parseRequestUri($language, $request->getRequestUri());
+            $url = self::parseRequestUri($language, $request->getRequestUri());
             App::setLocale($language);
             Session::put('language', $language);
 
-            if (rtrim($url, '/') != $request->getRequestUri()) {
+            if (rtrim($url, '/') != rtrim($request->url(), '/')) {
                 return response()->redirectTo($url, 301);
             }
         } else {
@@ -156,7 +156,8 @@ class SetLanguage
         }
 
         $url = implode('/', $url);
-        $url = str_replace('//', '/', $url);
+        $url = $_SERVER['HTTP_HOST'].'/'.$url;
+        $url = 'https://'.str_replace('//', '/', $url);
         return $url;
     }
 }
